@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
+import Spotify from "./Spotify.js"
 
 class App extends Component {
   constructor(props) {
@@ -23,15 +24,11 @@ class App extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.addMessage.bind(this)}>
-        <input type="text" ref={ el => this.inputEl = el }/>
-        <input type="submit"/>
-        <ul>
-          { /* Render the list of messages */
-            this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
-          }
-        </ul>
-      </form>
+      <body>
+        <h1>Song-O-Meter</h1>
+        <Spotify />
+      </body>
+      
     );
   }
 }

@@ -1,0 +1,20 @@
+h2.title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2.welcome {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button.submit {
+    background-color: blueviolet;
+}
+
+input.field {
+    margin: 10px;
+}
+
+label.fieldLabel {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}

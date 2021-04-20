@@ -35,13 +35,7 @@ class Lyrics extends Component {
       } else {
           console.log(items);
         return (
-            <ul>
-                {items.map(item => (
-            <li key={item.id}>
-              <strong>Title:</strong> {item.name}, <strong>Artist:</strong> {item.artists[0].name}  <a href={item.external_urls.spotify}>Click!</a>
-            </li>
-            ))}
-          </ul>
+            <h1>Hello!</h1>
         );
       }
     }

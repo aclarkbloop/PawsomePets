@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Song-O-Matic/static/css/main.75242724.chunk.css",
+    "main.js": "/Song-O-Matic/static/js/main.74c161d0.chunk.js",
+    "main.js.map": "/Song-O-Matic/static/js/main.74c161d0.chunk.js.map",
+    "runtime-main.js": "/Song-O-Matic/static/js/runtime-main.2368fee2.js",
+    "runtime-main.js.map": "/Song-O-Matic/static/js/runtime-main.2368fee2.js.map",
+    "static/js/2.ac34aeba.chunk.js": "/Song-O-Matic/static/js/2.ac34aeba.chunk.js",
+    "static/js/2.ac34aeba.chunk.js.map": "/Song-O-Matic/static/js/2.ac34aeba.chunk.js.map",
+    "static/js/3.af5b6a59.chunk.js": "/Song-O-Matic/static/js/3.af5b6a59.chunk.js",
+    "static/js/3.af5b6a59.chunk.js.map": "/Song-O-Matic/static/js/3.af5b6a59.chunk.js.map",
+    "index.html": "/Song-O-Matic/index.html",
+    "static/css/main.75242724.chunk.css.map": "/Song-O-Matic/static/css/main.75242724.chunk.css.map",
+    "static/js/2.ac34aeba.chunk.js.LICENSE.txt": "/Song-O-Matic/static/js/2.ac34aeba.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2368fee2.js",
+    "static/js/2.ac34aeba.chunk.js",
+    "static/css/main.75242724.chunk.css",
+    "static/js/main.74c161d0.chunk.js"
+  ]
+}

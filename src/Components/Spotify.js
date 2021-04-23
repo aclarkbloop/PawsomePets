@@ -16,16 +16,15 @@ class Spotify extends Component {
       const method = 
       {method: "GET", 
       headers: {
-        "Authorization" : "Bearer"
+        "Authorization" : "Bearer BQCpbiQKJWDg11v_UyHluW8RZHpZSL7_seu2Xh8qVosZt4Zgc4XyNnReKUseJPprlOP4KuEo9FLBmArf6Fw"
       },
       type: "track"};
       fetch("https://api.spotify.com/v1/search?q=" + this.state.songTitle + "&type=track", method)
       .then(res => res.json())
-      .then(data => 
-        this.setState({
-          isLoaded: true,
-          items: data.tracks.items
-        }))
+      .then(data => {this.setState({
+                      isLoaded: true,
+                      items: data.tracks.items})
+      })
     }
   
     render() {
@@ -35,10 +34,9 @@ class Spotify extends Component {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-        console.log(items);
         return (
-          <div>
-            <h1>Search results for: "{this.state.songTitle}"</h1>
+          <div className="spotifyDiv">
+            <h1>Spotify</h1>
             <ul>
                 {items.map(item => (
             <div className="searchResult"key={item.id}>

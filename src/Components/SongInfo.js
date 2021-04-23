@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
 import Spotify from "./Spotify";
+import News from "./News"
+import Lyrics from "./Lyrics"
+import CatPics from "./CatPics"
+import DogPics from "./DogPics";
+import PetFinder from "./PetFinder"
 
 class SongInfo extends Component {
 
@@ -29,8 +34,12 @@ class SongInfo extends Component {
     } else {
         console.log(items);
       return (
-        <div>
+        <div className="results">
+        <h1>Search results for: "{this.state.songInfo}"</h1>
         <Spotify song = {this.state.songInfo}/>
+        <CatPics />
+        <DogPics />
+        <PetFinder />
       </div>
       );
     }

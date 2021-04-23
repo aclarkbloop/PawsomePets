@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class Lyrics extends Component {
+class CatPics extends Component {
     constructor(props) {
       super(props);
       this.state = {
         error: null,
         isLoaded: false,
-        lyrics: []
+        img: ""
       };
     }
     
@@ -15,17 +15,15 @@ class Lyrics extends Component {
       console.log("in mount");
       const info = 
       {method: "GET",
-       headers: {
-        'Access-Control-Allow-Origin': "http://localhost:3000",
-        "x-rapidapi-key": "8a221a44c8msh2b7521877ef3353p1b5741jsnc9fd59c144de",
-        "x-rapidapi-host": "songmeanings.p.rapidapi.com"
-            }};
-      var url = "https://songmeanings.p.rapidapi.com/?key=1877ef3353p1b5741jsnc9fd59c144de&q=justin%20bieber&page=1&page_size=25&matchmode=extended&method=songs.search&format=json";
+        headers: {
+            'x-api-key': "2c045744-9552-4264-9f75-32b2e8c436f4"
+        }}
+      var url = "https://api.thecatapi.com/v1/breeds";
       fetch(url, info)
       .then(res => res.json()) 
       .then(data => this.setState({
         isLoaded: true,
-        lyrics: data,
+        img: data[1].image.url
        }))
       .catch((error) => {
         console.error('Error:', error);
@@ -33,20 +31,20 @@ class Lyrics extends Component {
     }
   
     render() {
-      const { error, isLoaded, lyrics } = this.state;
+      const { error, isLoaded, img} = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-          console.log("lyrics: " + lyrics)
         return (
           <div className="spotifyDiv">
-            <h1>Lyrics {lyrics}</h1>
+            <h1>Cats!!!</h1>
+            <img src={img}/>
           </div>
         );
       }
     }
   }
 
-export default Lyrics;
+export default CatPics;

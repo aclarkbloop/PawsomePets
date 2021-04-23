@@ -5,3 +5,8 @@ strong.songLabel {
 div.searchResult {
     margin: 10px;
 }
+
+div.spotifyDiv {
+    background-color: aliceblue;
+    max-width: 700px;
+}

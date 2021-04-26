@@ -1,7 +1,12 @@
 body {
   justify-content: center;
   text-align: center;
-  background-color: lightpink;
+  background-color: lightyellow;
+}
+
+div.body {
+  justify-content: center;
+  text-align: center;
 }
 
 h1.title {

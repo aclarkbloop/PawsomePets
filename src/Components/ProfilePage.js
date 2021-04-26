@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
 import SongInfo from "./SongInfo";
+import CatPics from "./CatPics"
+import DogPics from "./DogPics"
 import "../Styles/Application.css";
+import { Router } from "@reach/router";
 
 class ProfilePage extends Component {
 
@@ -12,7 +15,8 @@ class ProfilePage extends Component {
         isLoaded: false,
         user: this.props.currUser,
         value: "",
-        renderSong: false
+        renderAnimal: false,
+        type: "cat"
       };
   }
 
@@ -22,48 +26,56 @@ class ProfilePage extends Component {
       });
   }
 
-  handleChange(e) {
-    e.preventDefault();
-    console.log(e.target.value);
+  renderCat() {
     this.setState({
-      value: e.target.value
+      renderAnimal: true,
+      type: "cat"
     });
   }
 
-  handleSubmit(e) {
-    console.log("submitted");
-    e.preventDefault();
+  renderDog() {
     this.setState({
-      renderSong: true
+      renderAnimal: true,
+      type: "dog"
     });
   }
 
   render() {
-    const { error, isLoaded } = this.state;
+    const { error, isLoaded, type, renderAnimal, user } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>; 
     } else {
       return (
+        renderAnimal ?
+
+        type === "cat" ?
+        
         <div>
-        <h2 className="welcome">Welcome, {this.state.user.displayName}</h2>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            Search: 
-            <input type="text" name="name" value={this.state.value} onChange={(e) => this.handleChange(e)}/>
-          </label>
-          <input type="submit" value="Submit"/>
-        </form>
-        <div>
-          {this.state.renderSong
-          ? <SongInfo song={this.state.value}/>
-          : <p>this part will have song info if you search!</p>}
+          <h2 className="welcome">Welcome, {user.displayName}</h2>
+          <CatPics path="cats"/>
+          <button className="submit" onClick = {() => {auth.signOut()}}>Sign out</button>
         </div>
+      
+        :
+        
         <div>
-          <button onClick = {() => {auth.signOut()}}>Sign out</button>
+          <h2 className="welcome">Welcome, {user.displayName}</h2>
+          <DogPics></DogPics>
+          <button className="submit" onClick = {() => {auth.signOut()}}>Sign out</button>
         </div>
-      </div>
+      
+        :
+        <div className="profile">
+          <h2 className="welcome">Welcome, {user.displayName}</h2>
+          <h3>What type of pet would you like to explore?</h3>
+          <div className="petButtons">
+          <button size="lg" className="petButton" onClick={() => this.renderCat()}>Cats</button>
+          <button size="lg" className="petButton" onClick={() => this.renderDog()}>Dogs</button>
+          </div>
+          <div><button className="submit" onClick = {() => {auth.signOut()}}>Sign out</button></div> 
+        </div>
       );
     }
   }

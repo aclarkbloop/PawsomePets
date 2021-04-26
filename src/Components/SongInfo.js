@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
 import Spotify from "./Spotify";
-import News from "./News"
-import Lyrics from "./Lyrics"
 import CatPics from "./CatPics"
 import DogPics from "./DogPics";
 import PetFinder from "./PetFinder"

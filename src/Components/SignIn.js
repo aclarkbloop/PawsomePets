@@ -54,7 +54,7 @@ const SignIn = () => {
             onChange = {(event) => onChangeHandler(event)}
           />
           <br />{" "}
-          <button className="submit"onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+          <button className="submit" onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
             Sign in
           </button>
         </form>

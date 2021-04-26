@@ -7,7 +7,7 @@ h2.welcome {
 }
 
 button.submit {
-    background-color: blueviolet;
+    background-color: rgb(227, 148, 148);
 }
 
 input.field {
@@ -20,5 +20,30 @@ label.fieldLabel {
 }
 
 div.results {
+    justify-content: center;
+}
+
+button.petButton {
+    background-color: #ffae1a;
+    margin: 20px;
+    display: block;
+    width: 30%;
+    height: 20%;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+div.petButtons {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+}
+
+div.profile {
+    text-align: center;
     justify-content: center;
 }

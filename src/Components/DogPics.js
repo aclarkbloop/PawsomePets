@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DogBreed from "./DogBreed"
 
 class DogPics extends Component {
     constructor(props) {
@@ -6,7 +7,9 @@ class DogPics extends Component {
       this.state = {
         error: null,
         isLoaded: false,
-        img: ""
+        breeds: [],
+        index: 0,
+        renderBreed: false
       };
     }
     
@@ -23,28 +26,52 @@ class DogPics extends Component {
       .then(res => res.json()) 
       .then(data => this.setState({
         isLoaded: true,
-        img: data[0].image.url
+        breeds: data
        }))
       .catch((error) => {
         console.error('Error:', error);
       });
     }
+
+    renderBreed(e, id) {
+      e.preventDefault();
+      console.log(id);
+      var index = 0;
+      for (var i = 0; i < this.state.breeds.length; i++) {
+        if (this.state.breeds[i].id === id) {
+          index = i;
+        }
+      }
+      this.setState({
+        index: index,
+        renderBreed: true
+      });
+    }
   
     render() {
-      const { error, isLoaded, img} = this.state;
-      if (error) {
-        return <div>Error: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div>Loading...</div>;
-      } else {
-        return (
-          <div className="spotifyDiv">
-            <h1>Dogs!!!</h1>
-            <img src={img}/>
-          </div>
-        );
+        const { error, isLoaded, breeds, index, renderBreed} = this.state;
+        if (error) {
+          return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+          return <div>Loading...</div>;
+        } else if (renderBreed) {
+          return <DogBreed breed = {breeds[index]}></DogBreed>;
+        } else {
+          console.log("in cat")
+          return (
+            <div className="spotifyDiv">
+              <h1>Pick a breed to explore!</h1>
+              <ul>
+                {breeds.map(breed => (
+            <div className="searchResult" key={breed.id}>
+              <button onClick={(e) => this.renderBreed(e, breed.id)}>{breed.name}</button>
+            </div>
+            ))}
+          </ul>
+            </div>
+          );
+        }
       }
-    }
   }
 
 export default DogPics;

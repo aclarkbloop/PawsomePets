@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DogBreed from "./DogBreed"
+import PetFinder from "./PetFinder"
 
 class DogPics extends Component {
     constructor(props) {
@@ -59,16 +60,17 @@ class DogPics extends Component {
         } else {
           console.log("in cat")
           return (
-            <div className="spotifyDiv">
-              <h1>Pick a breed to explore!</h1>
+            <div className="petButtons">
+             <PetFinder type="dog"></PetFinder>
               <ul>
-                {breeds.map(breed => (
-            <div className="searchResult" key={breed.id}>
-              <button onClick={(e) => this.renderBreed(e, breed.id)}>{breed.name}</button>
-            </div>
-            ))}
-          </ul>
-            </div>
+              <h1>Choose a dog breed to learn about it!</h1>
+                  {breeds.map(breed => (
+              <div className="searchResult" key={breed.id}>
+              <button className="breed" onClick={(e) => this.renderBreed(e, breed.id)}>{breed.name}</button>
+              </div>
+                  ))}
+              </ul>
+        </div>
           );
         }
       }

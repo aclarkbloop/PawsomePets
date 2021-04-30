@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CatBreed from "./CatBreed"
 import { Link } from "@reach/router";
+import PetFinder from "./PetFinder"
+import CatFacts from "./CatFacts"
 
 
 class CatPics extends Component {
@@ -56,23 +58,24 @@ class CatPics extends Component {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else if (renderBreed) {
-        return <CatBreed breed = {breeds[index]}></CatBreed>;
+        return (
+        <div>
+          <CatBreed breed = {breeds[index]}></CatBreed>
+        </div>);
       } else {
         return (
           <div className="petButtons">
-            <Link to="profile">
-            Back to profile
-          </Link>{" "}
-            <h1>Cats!!!</h1>
-            <div></div>
-            <ul>
-                {breeds.map(breed => (
-            <div className="searchResult" key={breed.id}>
-              <button onClick={(e) => this.renderBreed(e, breed.id)}>{breed.name}</button>
-            </div>
-            ))}
-          </ul>
-          </div>
+             <PetFinder type="cat"></PetFinder>
+              <ul>
+              <h1>Choose a cat breed to learn about it!</h1>
+                  {breeds.map(breed => (
+              <div className="searchResult" key={breed.id}>
+              <button className="breed" onClick={(e) => this.renderBreed(e, breed.id)}>{breed.name}</button>
+              </div>
+                  ))}
+              </ul>
+              <CatFacts></CatFacts>
+        </div>
         );
       }
     }

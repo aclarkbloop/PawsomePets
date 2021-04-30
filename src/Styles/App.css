@@ -1,7 +1,7 @@
 body {
   justify-content: center;
   text-align: center;
-  background-color: lightyellow;
+  background-color: #FFAF87;
 }
 
 div.body {
@@ -11,6 +11,7 @@ div.body {
 
 h1.title {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 500%;
 }
 
 

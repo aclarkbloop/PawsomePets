@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
-import { auth, generateUserDocument } from "../firebase";
+import { auth, generateUserDocument, signInWithGoogle } from "../firebase";
 
 
 
@@ -90,8 +90,15 @@ const SignUp = () => {
             Sign up
           </button>
         </form>
-        <p className="text-center my-3">or</p>
+        <p>or</p>
         <button
+          onClick={() => {
+            try {
+              signInWithGoogle();
+            } catch (error) {
+              console.error("Error signing in with Google", error);
+            }
+          }}
           className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
         >
           Sign In with Google

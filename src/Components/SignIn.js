@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "@reach/router";
-import { auth } from "../firebase";
+import { auth, signInWithGoogle } from "../firebase";
 import "../Styles/Application.css";
 
 const SignIn = () => {
@@ -58,6 +58,18 @@ const SignIn = () => {
             Sign in
           </button>
         </form>
+        <p>or</p>
+        <button
+          onClick={() => {
+            try {
+              signInWithGoogle();
+            } catch (error) {
+              console.error("Error signing in with Google", error);
+            }
+          }} className="submit"
+        >
+          Sign In with Google
+        </button>
         <p>
           Don't have an account?{" "}
           <Link to="signUp">

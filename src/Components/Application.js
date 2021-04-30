@@ -10,8 +10,12 @@ import CatBreed from "./CatBreed";
 function Application() {
   const user = useContext(UserContext);;
   return (
+
         user ?
-          <ProfilePage currUser = {user}/>
+        <Router>
+          <ProfilePage path="/" currUser = {user}/>
+        </Router>
+          
       :
         <Router>
            <SignUp path="signUp" />

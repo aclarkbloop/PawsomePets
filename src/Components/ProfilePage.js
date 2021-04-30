@@ -40,6 +40,14 @@ class ProfilePage extends Component {
     });
   }
 
+  handleBack(e) {
+    e.preventDefault();
+    this.setState({
+      renderAnimal: false,
+      type: ""
+    });
+  }
+
   render() {
     const { error, isLoaded, type, renderAnimal, user } = this.state;
     if (error) {
@@ -54,6 +62,7 @@ class ProfilePage extends Component {
         
         <div>
           <h2 className="welcome">Welcome, {user.displayName}</h2>
+          <button className="submit" onClick={(e) => this.handleBack(e)}>Back</button>
           <CatPics path="cats"/>
           <button className="submit" onClick = {() => {auth.signOut()}}>Sign out</button>
         </div>
@@ -62,6 +71,7 @@ class ProfilePage extends Component {
         
         <div>
           <h2 className="welcome">Welcome, {user.displayName}</h2>
+          <button className="submit" onClick={(e) => this.handleBack(e)}>Back</button>
           <DogPics></DogPics>
           <button className="submit" onClick = {() => {auth.signOut()}}>Sign out</button>
         </div>
@@ -69,7 +79,7 @@ class ProfilePage extends Component {
         :
         <div className="profile">
           <h2 className="welcome">Welcome, {user.displayName}</h2>
-          <h3>What type of pet would you like to explore?</h3>
+          <h3 className="intro" >What type of pet would you like to explore?</h3>
           <div className="petButtons">
           <button size="lg" className="petButton" onClick={() => this.renderCat()}>Cats</button>
           <button size="lg" className="petButton" onClick={() => this.renderDog()}>Dogs</button>

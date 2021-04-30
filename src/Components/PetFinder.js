@@ -6,7 +6,8 @@ class PetFinder extends Component {
       this.state = {
         error: null,
         isLoaded: false,
-        img: ""
+        info: "",
+        type: this.props.type
       };
     }
     
@@ -16,14 +17,14 @@ class PetFinder extends Component {
       const info = 
       {method: "GET",
         headers: {
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJsbjVYVVAyclJqOXV0UjF5em9TOEJmYkF3QWYxTDdKZzlUV1dCOW5jRVVJeHhObTRqVyIsImp0aSI6ImNhYjEwY2YyZGJmYjE5MjRhMDFiZDk0YTkwZDliMWFmOWNhZjA5YWRiNTAxOTllZjE0ZDE3MGNhN2ZiNWFlYzIxZmRhOWQ1OTE5NmZjNmY1IiwiaWF0IjoxNjE5MTM1MjAxLCJuYmYiOjE2MTkxMzUyMDEsImV4cCI6MTYxOTEzODgwMSwic3ViIjoiIiwic2NvcGVzIjpbXX0.ZH0bW_DrYETakPsmXUAddlYlwxJkNmlgBDGFH0JvTWkLd1dOzFcmvrN6oE9wZEI2NVoTjeEkyfaYoOlTpUa4j-gRBHdOubKESh0hlUrJc7Ki5Z9oWiTMChPn2eagPBVh6UUsqOru4LdkP7tcC7IOd6hrq2TIdDqabphCU5pH-kJe3IhOdIgRJM71fgRCgX4MKlMTDuH3TgheTKA3gRwtK7gp3D9OnAx7zj2KVMm12vQD5GMW0LskZq9-t3ZcPV344_DfAOyaukIoaSKeh4MUIONky-wwPSpYGi5yXKz8uMUJYgTDug87cI_t6dC73F4OTY8ziR4ni5uXMk3FUoFjWQ"
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJsbjVYVVAyclJqOXV0UjF5em9TOEJmYkF3QWYxTDdKZzlUV1dCOW5jRVVJeHhObTRqVyIsImp0aSI6IjU3ODRiY2ZhYWFjZTE4ZmMyMmRhMzNiNDczNmI3M2ViZDNlNWJhMzcyMTA3MmI2OWEwYzUzYzM1MWQ1Nzk2ZDNhODI4YjNjZTQ0M2RlYmRiIiwiaWF0IjoxNjE5ODIwNjk5LCJuYmYiOjE2MTk4MjA2OTksImV4cCI6MTYxOTgyNDI5OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.w1uAtKECLxVTyEnjmCc9Ji9Xa3xKjlyKTBNXS82clr8Csy14ZIbWd5FIOidA30RJQj-wEJkAsJ8fHr6RpY16Ou7ftkBZXTfjUF-YSRBFIsHlP1xlRiMvqtfYm2XIv0t1nMxBP18SL7TkCNMOg-LHYnHXHWFw_y2fP2t-D4F0P79ebag-OpskpzPqDKYiJhcfulGRDZlv0UQpT-S2NcppsYqObsh3-x9PE7kjBtgblMDXDBi5Ncy3DJo9ep7gPFWCwwkIb8WHRBz-6MAn7aRztSFrpfpAZOmxlvxt9oZARoKkVm3TKo3itQQ4kdEB30XpFCbsjWCygvyzi0pQUo5OhA"
         }}
-      var url = "https://api.petfinder.com/v2/animals?type=dog&page=2";
+      var url = "https://api.petfinder.com/v2/animals?type=" + this.state.type + "&page=1";
       fetch(url, info)
       .then(res => res.json()) 
       .then(data => this.setState({
         isLoaded: true,
-        img: data.animals[0].type
+        info: data.animals
        }))
       .catch((error) => {
         console.error('Error:', error);
@@ -31,18 +32,28 @@ class PetFinder extends Component {
     }
   
     render() {
-      const { error, isLoaded, img} = this.state;
+      const { error, isLoaded, info} = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-          console.log(img)
+        console.log(info);
         return (
-        
-          <div className="spotifyDiv">
-            <h1>PetFinder!</h1>
-            <p>{img}</p>
+          <div className="petFinder">
+            <h1>PetFinder</h1>
+            <h2>Find adoptable pets.</h2>
+            <ul>
+                  {info.map(pet => (
+              <div className="pet" key={pet.id}>
+                <h3>Name: {pet.name}</h3>
+                <p>Contact: {pet.contact.email}</p>
+                <p>Breed: {pet.breeds.primary}</p>
+                {pet.photos.length > 0 ? <img src={pet.photos[0].medium}/> : <p>No photo available.</p>}
+                <div><a href={pet.url}>Click to learn more</a></div>
+              </div>
+                  ))}
+              </ul>
           </div>
         );
       }

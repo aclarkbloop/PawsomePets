@@ -3,12 +3,22 @@ h2.title {
 }
 
 h2.welcome {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #377771;
+    font-size: 200%;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 button.submit {
-    background-color: rgb(227, 148, 148);
+    background-color:#4CE0B3;
+    margin: 20px;
+    
 }
+
+h3.intro {
+    font-size: 150%;
+}
+
 
 input.field {
     margin: 10px;
@@ -23,8 +33,17 @@ div.results {
     justify-content: center;
 }
 
+div.info {
+  padding: 30px;
+}
+
+div.pet {
+    border:5px solid black;
+    padding: 20px;
+}
+
 button.petButton {
-    background-color: #ffae1a;
+    background-color: #FF8E72;
     margin: 20px;
     display: block;
     width: 30%;
@@ -39,11 +58,38 @@ button.petButton {
 div.petButtons {
     text-align: center;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
+    background-color: #ED6A5E;
 }
 
 div.profile {
     text-align: center;
     justify-content: center;
 }
+
+button.breed {
+    background-color: #FF8E72;
+    margin: 20px;
+    display: block;
+    width: 50%;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+div.petFinder {
+    max-width: 700px;
+    padding-right: 50px;
+    background-color: #377771;
+}
+
+div.factDiv {
+    background-color: #377771;
+    max-width: 500px;
+    padding: 30px;
+    margin-left: 20px;
+}
+

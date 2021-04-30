@@ -16,7 +16,7 @@ class Spotify extends Component {
       const method = 
       {method: "GET", 
       headers: {
-        "Authorization" : "Bearer BQCpbiQKJWDg11v_UyHluW8RZHpZSL7_seu2Xh8qVosZt4Zgc4XyNnReKUseJPprlOP4KuEo9FLBmArf6Fw"
+        "Authorization" : "Bearer BQBiEPsF740RQwncCAFG-qWZgjikfBWsJJQ9htM8VOF3US92HFhhFTrNocbMexECBB7EouYcO50uU1pMckc"
       },
       type: "track"};
       fetch("https://api.spotify.com/v1/search?q=" + this.state.songTitle + "&type=track", method)
@@ -36,11 +36,12 @@ class Spotify extends Component {
       } else {
         return (
           <div className="spotifyDiv">
-            <h1>Spotify</h1>
+            <h1>Songs related to the name of this breed:</h1>
             <ul>
                 {items.map(item => (
             <div className="searchResult"key={item.id}>
-              <strong className="songLabel">Title:</strong> {item.name}, <strong className="songLabel">Artist:</strong> {item.artists[0].name}  <a href={item.external_urls.spotify}>Click!</a>
+              <strong className="songLabel">Title:</strong> {item.name}, <strong className="songLabel">Artist:</strong> {item.artists[0].name} 
+              <div><a href={item.external_urls.spotify}>Listen to this song on Spotify!</a></div>
             </div>
             ))}
           </ul>

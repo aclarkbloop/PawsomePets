@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PetFinder from "./PetFinder";
+import Spotify from "./Spotify";
 
 class CatBreed extends Component {
     constructor(props) {
@@ -7,33 +9,54 @@ class CatBreed extends Component {
         error: null,
         isLoaded: false,
         breedInfo: this.props.breed,
+        picUrl: "",
+        width: 0,
+        height: 0
       };
     }
     
 
     componentDidMount() {
-      console.log(this.state.breedInfo.name);
-      this.setState({
-        isLoaded: true
-       });
+      console.log(this.state.breedInfo.id);
+      const info = 
+      {method: "GET",
+        headers: {
+            'x-api-key': "2c045744-9552-4264-9f75-32b2e8c436f4"
+        }}
+      var url = "https://api.thecatapi.com/v1/images/search?breed_id=" + this.state.breedInfo.id;
+      fetch(url, info)
+      .then(res => res.json()) 
+      .then(data => this.setState({
+        isLoaded: true,
+        picUrl: data[0].url,
+        width: data[0].width / 2,
+        height: data[0].height / 2
+       }))
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     }
   
     render() {
-      const { error, isLoaded, breedInfo} = this.state;
+      const { error, isLoaded, breedInfo, picUrl, width, height} = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-
         return (
-          <div className="spotifyDiv">
+          
+          <div className="petButtons">
+            <div>
             <h1>{breedInfo.name}</h1>
-            <h3>Temperament: {breedInfo.temperament}</h3>
-            <h3>Life Span: {breedInfo.life_span} years</h3>
-            <h3>Origin: {breedInfo.origin}</h3>
-            
+            <h3><strong>Temperament:</strong> {breedInfo.temperament}</h3>
+            <h3><b>Life Span:</b> {breedInfo.life_span} years</h3>
+            <h3><b>Origin:</b> {breedInfo.origin}</h3>
+            <img width={width} height={height} src={picUrl}/>
+            </div>
+            <Spotify song={breedInfo.name}></Spotify>
           </div>
+          
         );
       }
     }

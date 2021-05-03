@@ -12,10 +12,7 @@ function Application() {
   return (
 
         user ?
-        <Router>
-          <ProfilePage path="/" currUser = {user}/>
-        </Router>
-          
+          <ProfilePage currUser = {user}/>  
       :
         <Router>
            <SignUp path="signUp" />

@@ -17,7 +17,7 @@ class PetFinder extends Component {
       const info = 
       {method: "GET",
         headers: {
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJsbjVYVVAyclJqOXV0UjF5em9TOEJmYkF3QWYxTDdKZzlUV1dCOW5jRVVJeHhObTRqVyIsImp0aSI6IjU3ODRiY2ZhYWFjZTE4ZmMyMmRhMzNiNDczNmI3M2ViZDNlNWJhMzcyMTA3MmI2OWEwYzUzYzM1MWQ1Nzk2ZDNhODI4YjNjZTQ0M2RlYmRiIiwiaWF0IjoxNjE5ODIwNjk5LCJuYmYiOjE2MTk4MjA2OTksImV4cCI6MTYxOTgyNDI5OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.w1uAtKECLxVTyEnjmCc9Ji9Xa3xKjlyKTBNXS82clr8Csy14ZIbWd5FIOidA30RJQj-wEJkAsJ8fHr6RpY16Ou7ftkBZXTfjUF-YSRBFIsHlP1xlRiMvqtfYm2XIv0t1nMxBP18SL7TkCNMOg-LHYnHXHWFw_y2fP2t-D4F0P79ebag-OpskpzPqDKYiJhcfulGRDZlv0UQpT-S2NcppsYqObsh3-x9PE7kjBtgblMDXDBi5Ncy3DJo9ep7gPFWCwwkIb8WHRBz-6MAn7aRztSFrpfpAZOmxlvxt9oZARoKkVm3TKo3itQQ4kdEB30XpFCbsjWCygvyzi0pQUo5OhA"
+            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJsbjVYVVAyclJqOXV0UjF5em9TOEJmYkF3QWYxTDdKZzlUV1dCOW5jRVVJeHhObTRqVyIsImp0aSI6ImJmYTIwZTA1MzI2NTgxZmY2NjBhODc3ZTYyNWVlODMzNzI3ZTQ5YThiZmVlODE0NTFlM2VmOTIzZmIyNGZjNDE1YzhjZjdlMTY3MmRkMTdmIiwiaWF0IjoxNjIwMDcwMjM0LCJuYmYiOjE2MjAwNzAyMzQsImV4cCI6MTYyMDA3MzgzNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.NEXgFBJ7X0IyqjzZjzEC0EOgeNq4zGax5oz0eXnKtgc8KR3tNxndY3ozl-4F_3_1bT5Hq_1II1pwwgiUx0BDXRniVTKVw8EbatXtWoY5zDGI8nx5pePvJ5WKe-Pzl5zJ4uU92qFKIF1PafLzNX2j5Lj6sxf3lNkOhas9zJYYXy7WD4oS7EBk5JvdEcxPCIj1-w_AfQPYCwh9Y-ZpDQIST9VpFAfU1aJzT_TMiK0VmeOjFjMMU1GqvfId4yUfXbmQ4Aaax0AMcol2Vl2eMoy-xsAhgKmJL6-5EjzWqM9515crikVj_mTRde4bmwwRtF5o7DIGsJxFXaS1s_n6wEizUQ"
         }}
       var url = "https://api.petfinder.com/v2/animals?type=" + this.state.type + "&page=1";
       fetch(url, info)

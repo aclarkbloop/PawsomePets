@@ -20,7 +20,6 @@ class CatBreed extends Component {
       const info = 
       {method: "GET",
         headers: {
-            'x-api-key': "2c045744-9552-4264-9f75-32b2e8c436f4"
         }}
       var url = "https://api.thecatapi.com/v1/images/search?breed_id=" + this.state.breedInfo.id;
       fetch(url, info)

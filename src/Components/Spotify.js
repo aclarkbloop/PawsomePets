@@ -17,7 +17,6 @@ class Spotify extends Component {
       const method = 
       {method: "GET", 
       headers: {
-        "Authorization" : "Bearer BQCmdRDvbAkyEJTHpF5i8SZ5Je7Vw5q3CNh6R1Wfeowq2wVI1o07ymDQMCtZ76VQ6FqLIxVYEtzyvzAu4-8"
       },
       type: "track"};
       fetch("https://api.spotify.com/v1/search?q=" + this.state.songTitle + "&type=track", method)

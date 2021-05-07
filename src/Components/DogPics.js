@@ -20,7 +20,6 @@ class DogPics extends Component {
       const info = 
       {method: "GET",
         headers: {
-            'x-api-key': "91884906-e64a-42eb-9896-d4e9bf7e755e"
         }}
       var url = "https://api.thedogapi.com/v1/breeds";
       fetch(url, info)

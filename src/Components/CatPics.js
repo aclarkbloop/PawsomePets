@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CatBreed from "./CatBreed"
-import { Link } from "@reach/router";
 import PetFinder from "./PetFinder"
 import CatFacts from "./CatFacts"
 

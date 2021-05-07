@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PetFinder from "./PetFinder";
 import Spotify from "./Spotify";
 
 class DogBreed extends Component {

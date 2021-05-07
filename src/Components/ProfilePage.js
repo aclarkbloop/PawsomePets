@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { auth } from "../firebase";
-import SongInfo from "./SongInfo";
 import CatPics from "./CatPics"
 import DogPics from "./DogPics"
 import "../Styles/Application.css";
-import { Router } from "@reach/router";
 
 class ProfilePage extends Component {
 

@@ -30,11 +30,11 @@ const SignIn = () => {
       <h2 className="title">Sign In</h2>
       <div>
         {error !== null && <div>{error}</div>}
-        <form className="loginForm">
-          <label className="fieldLabel">
+        <form>
+          <label>
             Email:
           </label>
-          <input className="field"
+          <input
             type="email"
             name="userEmail"
             value = {email}
@@ -42,10 +42,10 @@ const SignIn = () => {
             id="userEmail"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <label className="fieldLabel">
+          <label>
             Password:
           </label>
-          <input className="field"
+          <input
             type="password"
             name="userPassword"
             value = {password}
@@ -53,7 +53,7 @@ const SignIn = () => {
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <br />{" "}
+          <p>      </p>
           <button className="submit" onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
             Sign in
           </button>

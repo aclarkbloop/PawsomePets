@@ -45,7 +45,7 @@ const createUserWithEmailAndPasswordHandler = async (event, email, password) => 
           </div>
         )}
         <form>
-          <label htmlFor="displayName" className="block">
+          <label className= "label" htmlFor="displayName">
             Display Name:
           </label>
           <input
@@ -56,7 +56,7 @@ const createUserWithEmailAndPasswordHandler = async (event, email, password) => 
             id="displayName"
             onChange={event => onChangeHandler(event)}
           />
-          <label htmlFor="userEmail">
+          <label className= "label" htmlFor="userEmail">
             Email:
           </label>
           <input
@@ -67,7 +67,7 @@ const createUserWithEmailAndPasswordHandler = async (event, email, password) => 
             id="userEmail"
             onChange={event => onChangeHandler(event)}
           />
-          <label htmlFor="userPassword">
+          <label className= "label" htmlFor="userPassword">
             Password:
           </label>
           <input
@@ -78,7 +78,9 @@ const createUserWithEmailAndPasswordHandler = async (event, email, password) => 
             id="userPassword"
             onChange={event => onChangeHandler(event)}
           />
+          <p>Password must have 8-25 characters including one letter and one number</p>
           <button
+            className="submit"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
             }}
@@ -88,6 +90,7 @@ const createUserWithEmailAndPasswordHandler = async (event, email, password) => 
         </form>
         <p>or</p>
         <button
+          className="submit"
           onClick={() => {
             try {
               signInWithGoogle();

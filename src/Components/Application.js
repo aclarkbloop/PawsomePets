@@ -5,7 +5,6 @@ import SignUp from "./SignUp";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider"
 import "../Styles/Application.css";
-import CatBreed from "./CatBreed";
 
 function Application() {
   const user = useContext(UserContext);;

@@ -14,22 +14,10 @@ class Spotify extends Component {
     }
   
     componentDidMount() {
-      // const met = 
-      // {method: "POST",
-      // headers: {
-      //   "Authorization" : "Basic MzI2NmQyYmJkMzEzNGU0ODk3NjEyMjdkYmFkNTBmMDY6NjEwMTBmNTc2YTQxNGZhMzg1NzEwM2MyNDRmOGJkODQ="
-      // }
-      // }
-      // fetch("https://accounts.spotify.com/api/token?grant_type=client_credentials", met)
-      // .then(res => res.json())
-      // .then(data => { 
-      //               this.setState({
-      //                 token: data.access_token})
-      // })
       const method = 
       {method: "GET", 
       headers: {
-        "Authorization" : "Bearer BQD1FSoLPuqQbEd7fsDYE4WMq8CZlpykF4Yp8Sa2RXhue6vFPnoCmJgzKiHeeaQFzbrSpGRDmKiWr15PGHQ"
+        "Authorization" : "Bearer BQCmdRDvbAkyEJTHpF5i8SZ5Je7Vw5q3CNh6R1Wfeowq2wVI1o07ymDQMCtZ76VQ6FqLIxVYEtzyvzAu4-8"
       },
       type: "track"};
       fetch("https://api.spotify.com/v1/search?q=" + this.state.songTitle + "&type=track", method)
